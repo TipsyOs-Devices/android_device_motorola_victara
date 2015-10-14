@@ -1,10 +1,16 @@
 [
   {
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common"
+    "repository": "CyanogenMod/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "branch": "cm-12.1"
   },
   {
-    "repository": "android_kernel_motorola_msm8974",
-    "target_path": "kernel/motorola/msm8974"
-  }
+    "repository": "CyanogenMod/android_kernel_motorola_msm8974",
+    "target_path": "kernel/motorola/msm8974",
+    "branch": "cm-12.1"
+  },
+  {
+    "repository": "TheMuppets/proprietary_vendor_motorola",
+    "target_path": "vendor/motorola",
+    "branch": "cm-12.1"
 ]
