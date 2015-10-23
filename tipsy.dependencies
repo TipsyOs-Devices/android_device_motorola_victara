@@ -5,9 +5,9 @@
     "branch": "cm-12.1"
   },
   {
-    "repository": "CyanogenMod/android_kernel_motorola_msm8974",
+    "repository": "TipsyOs-Devices/kernel_motorola_msm8974",
     "target_path": "kernel/motorola/msm8974",
-    "branch": "cm-12.1"
+    "branch": "lp5.1"
   },
   {
     "repository": "TheMuppets/proprietary_vendor_motorola",
