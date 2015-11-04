@@ -44,7 +44,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/motorola/victara/mkbootimg.mk
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=400M
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -55,6 +55,7 @@ TARGET_KERNEL_CONFIG := cyanogenmod_victara_defconfig
 # Audio
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
 AUDIO_FEATURE_ENABLED_EXTERNAL_SPEAKER := true
+AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
 AUDIO_FEATURE_ENABLED_USBAUDIO := true
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_FLUENCE := true
@@ -71,8 +72,6 @@ QCOM_BT_USE_SMD_TTY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Display
-BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
@@ -130,6 +129,10 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Ril
+BOARD_PROVIDES_LIBRIL := true
+
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
@@ -143,7 +146,6 @@ BOARD_SEPOLICY_UNION += \
     file.te \
     fsg_file.te \
     healthd.te \
-    init_shell.te \
     init.te \
     installd.te \
     keystore.te \
@@ -159,6 +161,11 @@ BOARD_SEPOLICY_UNION += \
     ueventd.te \
     vold.te \
     wpa.te
+
+# Vendor Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_victara
+TARGET_LIBINIT_DEFINES_FILE := device/motorola/victara/init/init_victara.c
 
 # Vold
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
