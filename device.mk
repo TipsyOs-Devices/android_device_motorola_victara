@@ -74,10 +74,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/victara/permissions/com.motorola.software.x_line.xml:system/etc/permissions/com.motorola.software.x_line.xml \
     device/motorola/victara/permissions/com.motorola.targetnotif.xml:system/etc/permissions/com.motorola.targetnotif.xml
 
-# System Properties
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 PRODUCT_CHARACTERISTICS := nosdcard
 
 # Screen density
@@ -89,6 +85,10 @@ TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# Art
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-swap=false
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -146,8 +146,7 @@ PRODUCT_PACKAGES += \
     fsck.f2fs \
     make_ext4fs \
     mkfs.f2fs \
-    resize2fs \
-    setup_fs
+    resize2fs
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -228,13 +227,11 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh \
-    moto_com.sh
+    init.qcom.bt.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.mmi.boot.sh \
-    init.mmi.diag.rc \
     init.mmi.radio.sh \
     init.mmi.rc \
     init.mmi.touch.sh \
@@ -246,14 +243,19 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
-# Support
+# SSL Compat
 PRODUCT_PACKAGES += \
-    libcurl \
-    libxml2
+    libboringssl-compat
 
 # Stlport
 PRODUCT_PACKAGES += \
     libstlport
+
+# Support
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
+    libcurl \
+    libxml2
 
 # Thermal
 PRODUCT_COPY_FILES += \

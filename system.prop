@@ -20,6 +20,7 @@ ro.hdmi.enable=true
 
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
+persist.data.qmi.adb_logmask=0
 ro.data.large_tcp_window_size=true
 
 #system props for time-services
@@ -90,3 +91,6 @@ camera2.portability.force_api=1
 
 # Play store
 ro.com.google.clientidbase.gmm=android-motorola
+
+# Wifi
+ro.disableWifiApFirmwareReload=true
