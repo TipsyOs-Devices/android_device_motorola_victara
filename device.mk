@@ -139,15 +139,6 @@ PRODUCT_PACKAGES += \
     libgenlock \
     memtrack.msm8974
 
-# Filesystem
-PRODUCT_PACKAGES += \
-    e2fsck \
-    fibmap.f2fs \
-    fsck.f2fs \
-    make_ext4fs \
-    mkfs.f2fs \
-    resize2fs
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
@@ -183,8 +174,7 @@ PRODUCT_COPY_FILES += \
 
 # Motorola
 PRODUCT_PACKAGES += \
-    charge_only_mode \
-    libmoto
+    charge_only_mode
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -202,7 +192,6 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdashplayer \
     libdivxdrmdecrypt \
     libextmedia_jni \
     libOmxAacEnc \
@@ -211,15 +200,9 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
-    libOmxVdecHevc \
     libOmxVenc \
     libOmxVidcCommon \
-    libqcmediaplayer \
-    libstagefrighthw \
-    qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    libstagefrighthw
 
 # Power HAL
 PRODUCT_PACKAGES += \
@@ -243,6 +226,14 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# Shim libraries
+PRODUCT_PACKAGES += \
+    libshim_camera \
+    libshim_log \
+    libshim_mdmcutback \
+    libshim_ril \
+    libshim_speakerbundle
+
 # SSL Compat
 PRODUCT_PACKAGES += \
     libboringssl-compat
@@ -264,10 +255,6 @@ PRODUCT_COPY_FILES += \
 # Torch
 PRODUCT_PACKAGES += \
     Torch
-
-# USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
 
 # Wifi
 PRODUCT_PACKAGES += \
